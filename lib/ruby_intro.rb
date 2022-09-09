@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # Part 1
+puts "hello world"
 
 def sum(arr)
   # YOUR CODE HERE
