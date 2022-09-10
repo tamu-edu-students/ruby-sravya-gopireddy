@@ -3,7 +3,6 @@
 # Part 1
 
 def sum(arr)
-  # YOUR CODE HERE
   result = 0
   arr.each do |i|
     result += i
@@ -12,7 +11,6 @@ def sum(arr)
 end
 
 def max_2_sum(arr)
-  # YOUR CODE HERE
   if arr.size == 0
     return 0
   elsif arr.size == 1
@@ -34,7 +32,6 @@ def max_2_sum(arr)
 end
 
 def sum_to_n?(arr, number)
-  # YOUR CODE HERE
   # Sort the input array. Use 2 pointers approach to find elements that sum upto n
   arr = arr.sort 
   left = 0
@@ -55,15 +52,33 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  return "Hello, " + String.new(name)
 end
 
 def starts_with_consonant?(string)
-  # YOUR CODE HERE
+=begin
+  Regex expression to check
+  \A : To match the first letter of string 
+  [A-Z&&[^AEIOU]] : To match with any consonant(letters other than a,e,i,o,u)
+  /<expression>/i : To ignore lettercase
+=end
+  return /\A[A-Z&&[^AEIOU]]/i.match?(string)
 end
 
 def binary_multiple_of_4?(string)
-  # YOUR CODE HERE
+# Regex expression to check all letters in string are 0/1
+  if (/[^0-1]/.match?(string)) || string.size == 0
+    return false 
+  end
+=begin
+  Regex expression to check if divisible by 4(i.e last 2 letters are 00)
+  \A : Starting of String
+  (.) : Match any 
+  * : Match 0 or more times
+  00 : Match 2 consecutive zeros 
+  \z : End of string
+=end
+  return  /\A(.)*00\z/.match?(string) || string == "0"
 end
 
 # Part 3
