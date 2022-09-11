@@ -85,5 +85,39 @@ end
 
 # Object representing a book
 class BookInStock
-  # YOUR CODE HERE
+  def initialize(isbn, price)
+    raise ArgumentError.new("ISBN cannot be empty for a book") if isbn.empty?
+    raise ArgumentError.new("Price of book cannot be negative or 0") if price <=0
+    @isbn = isbn
+    @price = price
+  end
+
+  # Getter for isbn
+  def isbn
+    @isbn
+  end
+
+  # Setter for isbn
+  def isbn=(isbn)
+    raise ArgumentError.new("ISBN cannot be empty for a book") if isbn.empty?
+    @isbn = isbn
+  end
+
+  # Getter for price
+  def price
+    @price
+  end
+
+  # Setter for price
+  def price=(price)
+    if price <=0
+      raise ArgumentError.new("Price of book cannot be negative or 0") if price <=0
+    end
+    @price = price
+  end
+
+  # Formatting price to 2 decimal points using 0.2f
+  def price_as_string
+    return "$%0.2f" %@price
+  end
 end
