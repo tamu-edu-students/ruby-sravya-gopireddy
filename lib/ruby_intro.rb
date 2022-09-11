@@ -110,9 +110,7 @@ class BookInStock
 
   # Setter for price
   def price=(price)
-    if price <=0
-      raise ArgumentError.new("Price of book cannot be negative or 0") if price <=0
-    end
+    raise ArgumentError.new("Price of book cannot be negative or 0") if price <=0
     @price = price
   end
 
